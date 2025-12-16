@@ -24,6 +24,23 @@ public class GildedRoseTests_ItemSellIn
     }
 
     [Fact]
+    public void VestDecreasesSellInDoesNotGoBelow0()
+    {
+        IList<Item> Items = new List<Item>();
+        Item standard = new ItemBuilder()
+            .WithName("Normal Item")
+            .WithSellIn(0)
+            .WithQuality(20)
+            .Build();
+
+        Items.Add(standard);
+
+        GildedRose app = new GildedRose(Items);
+        app.UpdateQuality();
+        Assert.Equal(0, Items[0].SellIn);
+    }
+
+    [Fact]
     public void AgedBrieDecreasesSellIn()
     {
         IList<Item> Items = new List<Item>();
