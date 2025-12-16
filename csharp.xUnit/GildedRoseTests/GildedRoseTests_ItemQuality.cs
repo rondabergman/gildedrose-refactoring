@@ -226,4 +226,21 @@ public class GildedRoseTests_ItemQuality
         app.UpdateQuality();
         Assert.Equal(0, Items[0].Quality);
     }
+
+    [Fact]
+    public void ConjuredItems_DegradeTwiceAsFast()
+    {
+        IList<Item> Items = new List<Item>();
+        Item passes = new ItemBuilder()
+            .WithName("Conjured Mana Cake")
+            .WithSellIn(10)
+            .WithQuality(30)
+            .Build();
+
+        Items.Add(passes);
+
+        GildedRose app = new GildedRose(Items);
+        app.UpdateQuality();
+        Assert.Equal(28, Items[0].Quality);
+    }
 }
