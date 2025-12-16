@@ -84,6 +84,14 @@ public class GildedRose
                     }
                 }
             }
+
+            if (Items[i].Name.Contains("Conjured"))
+            {
+                if (Items[i].Quality > 0)
+                {
+                    Items[i].Quality = Items[i].Quality - 1;
+                }
+            }
         }
     }
 }

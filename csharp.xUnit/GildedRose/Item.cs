@@ -16,7 +16,7 @@ public class ItemBuilder
     public ItemBuilder WithName(string name)
     {
         _name = name;
-        return this; // Enables method chaining
+        return this;
     }
 
     public ItemBuilder WithSellIn(int sellIn)
