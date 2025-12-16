@@ -11,72 +11,71 @@ public class Program
 
 
 
-        IList<Item> items = new List<Item>();
+        IList<Item> items = new List<Item>()
         {
             {
                 new ItemBuilder()
                 .WithName("+5 Dexterity Vest")
                 .WithSellIn(10)
                 .WithQuality(20)
-                .Build();
-            }
+                .Build()
+            },
             {
                 new ItemBuilder()
                 .WithName("Aged Brie")
                 .WithSellIn(2)
                 .WithQuality(0)
-                .Build();
-            }
+                .Build()
+            },
             {
                 new ItemBuilder()
                 .WithName("Elixir of the Mongoose")
                 .WithSellIn(5)
                 .WithQuality(7)
-                .Build();
-            }
+                .Build()
+            },
             {
                 new ItemBuilder()
                 .WithName("Sulfuras, Hand of Ragnaros")
                 .WithSellIn(0)
                 .WithQuality(80)
-                .Build();
-            }
+                .Build()
+            },
             {
                 new ItemBuilder()
                 .WithName("Sulfuras, Hand of Ragnaros")
                 .WithSellIn(-1)
                 .WithQuality(80)
-                .Build();
-            }
+                .Build()
+            },
             {
                 new ItemBuilder()
                 .WithName("Backstage passes to a TAFKAL80ETC concert")
                 .WithSellIn(15)
                 .WithQuality(20)
-                .Build();
-            }
+                .Build()
+            },
             {
                 new ItemBuilder()
                 .WithName("Backstage passes to a TAFKAL80ETC concert")
                 .WithSellIn(10)
                 .WithQuality(49)
-                .Build();
-            }
+                .Build()
+            },
             {
                 new ItemBuilder()
                 .WithName("Backstage passes to a TAFKAL80ETC concert")
                 .WithSellIn(5)
                 .WithQuality(49)
-                .Build();
-        }
-            // this conjured item does not work properly yet
-            //{
-            //    new ItemBuilder()
-            //    .WithName("Conjured Mana Cake")
-            //    .WithSellIn(3)
-            //    .WithQuality(6)
-            //    .Build();
-            //}
+                .Build()
+            },
+            {
+                new ItemBuilder()
+                .WithName("Conjured Mana Cake")
+                .WithSellIn(3)
+                .WithQuality(6)
+                .Build()
+            }
         };
 
         var app = new GildedRose(items);
@@ -90,7 +89,7 @@ public class Program
         for (var i = 0; i < days; i++)
         {
             Console.WriteLine("-------- day " + i + " --------");
-            Console.WriteLine("name, sellIn, quality");
+            Console.WriteLine("name , sellIn, quality");
             for (var j = 0; j < items.Count; j++)
             {
                 Console.WriteLine(items[j].Name + ", " + items[j].SellIn + ", " + items[j].Quality);

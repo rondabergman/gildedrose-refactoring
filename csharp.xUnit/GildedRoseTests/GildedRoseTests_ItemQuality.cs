@@ -126,6 +126,23 @@ public class GildedRoseTests_ItemQuality
     }
 
     [Fact]
+    public void SulfurasQualityDoesNotChange_WithSellInLessThan1()
+    {
+        IList<Item> Items = new List<Item>();
+        Item sulfuras = new ItemBuilder()
+            .WithName("Sulfuras, Hand of Ragnaros")
+            .WithSellIn(0)
+            .WithQuality(80)
+            .Build();
+
+        Items.Add(sulfuras);
+
+        GildedRose app = new GildedRose(Items);
+        app.UpdateQuality();
+        Assert.Equal(80, Items[0].Quality);
+    }
+
+    [Fact]
     public void BackstagePassesQualityDoesNotChangeWithQualityGreaterThan50()
     {
         IList<Item> Items = new List<Item>();
