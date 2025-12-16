@@ -66,10 +66,8 @@ public class GildedRose
                         Items[i].Quality -= 2;
                     }
                     else
-                    {
-                        Items[i].Quality = 0;
-                    }
-                    break;
+                        Items[i].Quality--;
+                        break;
                 default:
                     Items[i].Quality -= 1;
 

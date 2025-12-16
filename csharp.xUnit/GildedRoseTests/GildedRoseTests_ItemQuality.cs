@@ -41,6 +41,23 @@ public class GildedRoseTests_ItemQuality
     }
 
     [Fact]
+    public void StandardItemQualityDoesNotGoBelow0()
+    {
+        IList<Item> Items = new List<Item>();
+        Item vest = new ItemBuilder()
+            .WithName("+5 Dexterity Vest")
+            .WithSellIn(1)
+            .WithQuality(0)
+            .Build();
+
+        Items.Add(vest);
+
+        GildedRose app = new GildedRose(Items);
+        app.UpdateQuality();
+        Assert.Equal(0, Items[0].Quality);
+    }
+
+    [Fact]
     public void AgedBrieIncreasesInQuality()
     {
         IList<Item> Items = new List<Item>();
@@ -242,5 +259,22 @@ public class GildedRoseTests_ItemQuality
         GildedRose app = new GildedRose(Items);
         app.UpdateQuality();
         Assert.Equal(28, Items[0].Quality);
+    }
+
+    [Fact]
+    public void ConjuredItems_DegradeTwiceAsFastButDoesNotGoBelow0()
+    {
+        IList<Item> Items = new List<Item>();
+        Item passes = new ItemBuilder()
+            .WithName("Conjured Mana Cake")
+            .WithSellIn(10)
+            .WithQuality(1)
+            .Build();
+
+        Items.Add(passes);
+
+        GildedRose app = new GildedRose(Items);
+        app.UpdateQuality();
+        Assert.Equal(0, Items[0].Quality);
     }
 }
